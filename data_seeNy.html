@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浦发银行</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/index.css">
+	<script src='js/jquery-1.11.1.min.js'></script>
+</head>
+<body>
+	<div class="data_see">
+		<div class="data_see_top">
+			<span style='color:#3396FF;cursor:pointer;' id='return_blank'>返回 | </span>
+			<span style='color:#3396FF;'>报表一览</span>
+			<span style='color:#3396FF;'> > </span>
+			<span>打开一览</span>
+		</div>
+		<div class="baob_see">
+			<img src="images/bb_see_png.png" alt="">
+		</div>
+	</div>
+	<script>
+		$('.fenye_i_in em').click(function(){
+			$(this).addClass('current').siblings('em').removeClass('current');
+		});
+		$('#next_x').click(function(){
+			var input_input = $('#input_input').val();
+			if(input_input <= 1){
+				return false;
+			}else{
+				input_input --;
+				$('#input_input').val(input_input);
+			}
+		});
+		$('#prev_s').click(function(){
+			var input_input = $('#input_input').val();
+			input_input ++;
+			$('#input_input').val(input_input);	
+		});
+		$('.xuanbox').click(function(){
+			if($(this).hasClass('current')){
+				$(this).removeClass('current');
+			}else{
+				$(this).addClass('current');
+			}
+		});
+		$('#dele_btn').click(function(){
+			$('#del_box').stop(true).fadeIn(300);
+		});
+		$('#close_Btn').click(function(){
+			$('#del_box').stop(true).fadeOut(200);
+		});
+		$('#return_blank').click(function(){
+			window.location.href ='data_see.html';
+		});
+	</script>
+</body>
+</html>

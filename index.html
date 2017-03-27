@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浦发银行</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/index.css">
+	<script src='js/jquery-1.11.1.min.js'></script>
+</head>
+<body>
+	<div class="section_inin">
+		<div class="nav_div">
+			<div class="nav_logo">
+				<img src="images/logo.png" alt="">
+			</div>
+			<ul class='nav_ul'>
+				<li id='nav_lione' class='current'>
+					<span>我的报表</span>
+					<div class="xl_cd">
+						<em id='date_listhtml'>报表一览</em>
+						<em id='date_lissqtml'>报表授权一览</em>
+					</div>
+				</li>
+				<li id='data_fenxi'>
+					<span>数据分析</span>
+				</li>
+				<li>
+					<span>数据之家</span>
+				</li>
+				<li>
+					<span>系统管理</span>
+				</li>
+				<li id='bz_list'>
+					<span>帮助</span>
+				</li>
+				<li>
+					<span>公告</span>
+				</li>
+			</ul>
+			<div class="nav_right">
+				<span>您好，Xxxx用户</span>
+				<em></em>
+				<em></em>
+			</div>
+		</div>
+	</div>
+	<!-- all_section -->
+	<div class="section_i">
+		<div class="section_ileft">
+			<ul class="section_ileft_ul" id='left_cd'>
+				<li class='current'>
+					进件
+				</li>
+				<li>
+					分期
+				</li>
+				<li>
+					账户信息
+				</li>
+				<li>
+					客户信息
+				</li>
+			</ul>
+			<ul class="section_ileft_ul" id='left_cd2' style='display:none;'>
+				<li class='current'>
+					视频
+				</li>
+				<li>
+					文档
+				</li>
+			</ul>
+			<ul class="section_ileft_ul" id='left_cd3' style='display:none;'>
+				<li class='current'>
+					进件(报表授权一览)
+				</li>
+				<li>
+					分期
+				</li>
+				<li>
+					账户信息
+				</li>
+				<li>
+					客户信息
+				</li>
+			</ul>
+			<ul class="section_ileft_ul" id='left_cd4' style='display:none;'>
+				<li class='current'>
+					进件（数据分析）
+				</li>
+				<li>
+					分期
+				</li>
+				<li>
+					账户信息
+				</li>
+				<li>
+					客户信息
+				</li>
+			</ul>
+		</div>
+		<div class="section_iright">
+			<iframe src="data_see.html" frameborder="0" id='iframes_html'>
+				
+			</iframe>
+			<div class="footer_i">
+				版权所有 : 浦发银行
+			</div>
+		</div>
+	</div>
+
+	<!-- all_section over-->
+	<script type="text/javascript">
+		var window_w = $(window).width(); 
+		var window_h = $(window).height(); 
+		$('#nav_lione').click(function(){
+			$('.xl_cd').stop(true).toggle();
+		});
+		$('.section_i').css('height',(window_h-60) + 'px');
+		$('.section_iright').css('width', (window_w - 200) + 'px');
+		$('#iframes_html').css('width', (window_w - 200) + 'px');
+		$(window).resize(function(){
+			var window_w = $(window).width(); 
+			var window_h = $(window).height(); 
+			$('.section_i').css('height',(window_h-60) + 'px');
+			$('.section_iright').css('width', (window_w - 200) + 'px');
+			$('#iframes_html').css('width', (window_w - 200) + 'px');
+		});
+		function closeBox(){
+			$('#left_cd').stop(true).hide();
+			$('#left_cd2').stop(true).hide();
+			$('#left_cd3').stop(true).hide();
+			$('#left_cd4').stop(true).hide();
+		}
+		$('#left_cd li,#left_cd2 li,#left_cd3 li,#left_cd4 li').click(function(){
+			$(this).addClass('current').siblings('li').removeClass('current');
+		});
+		$('.nav_ul li').click(function(){
+			$(this).addClass('current').siblings('li').removeClass('current');
+		});
+		$('#date_listhtml').click(function(){
+			closeBox();
+			$('#left_cd').stop(true).show();
+			$('#iframes_html').attr('src','data_see.html');
+		});
+		$('#data_fenxi').click(function(){
+			closeBox();
+			$('#left_cd4').stop(true).show();
+			$('#iframes_html').attr('src','data_fenxi.html');
+		});
+		$('#date_lissqtml').click(function(){
+			closeBox();
+			$('#left_cd3').stop(true).show();
+			$('#iframes_html').attr('src','data_see_sq.html');
+		});
+		$('#bz_list').click(function(){
+			closeBox();
+			$('#left_cd2').stop(true).show();
+			$('#iframes_html').attr('src','data_bangzhu.html');
+		});
+	</script>
+</body>
+</html>
